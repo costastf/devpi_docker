@@ -1,0 +1,14 @@
+version: '2'
+services:
+
+  devpi:
+    image: mydevpi:0.0.1
+    volumes:
+      - ./data:/devpi
+    ports:
+      - 4040:4040
+    environment:
+      - DEVPI_PASSWORD=password
+      - DEVPI_PORT=4040
+      - CUSTOM_INDEX=pypi
+    restart: unless-stopped
